@@ -1,14 +1,31 @@
 import React from "react";
 import "./Home.scss";
 import Header from "../../components/Header/Header";
-import Search from "../../components/Search/Search";
-import People from "../../components/People/People";
-const Home = () => {
+import Card from "../../components/Card/Card";
+import { MdSearch } from "react-icons/md";
+
+const Home = ({ candidates }) => {
   return (
     <div>
       <Header />
-      <Search />
-      <People />
+      <div>
+        <div className="search-div">
+          <input
+            type="search"
+            name="search"
+            id="home-search"
+            placeholder="Search here..."
+          />
+          <button id="home-search-button">
+            <MdSearch size="24px" />
+          </button>
+        </div>
+      </div>
+      <section id="wrapper-section">
+        <div id="people-container">
+          <Card candidates={candidates} />
+        </div>
+      </section>
     </div>
   );
 };
